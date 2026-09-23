@@ -1,6 +1,6 @@
 /**
  * Kevin - Modern Personal Portfolio
- * Interactive JavaScript Engine
+ * Unified Motion & Interaction Engine
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -14,109 +14,137 @@ document.addEventListener('DOMContentLoaded', () => {
   const toast = document.getElementById('toastNotice');
   const backToTopBtn = document.getElementById('backToTop');
 
-  // --- 1. Sticky Header on Scroll ---
-  const handleScrollHeader = () => {
-    if (window.scrollY > 40) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
+  // --- 1. Sticky Header & ScrollSpy with requestAnimationFrame ---
+  let isScrolling = false;
+
+  const handleScrollState = () => {
+    const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+
+    // Header subtle appearance transition
+    if (header) {
+      const isScrolled = scrollY > 20;
+      if (isScrolled !== header.classList.contains('scrolled')) {
+        header.classList.toggle('scrolled', isScrolled);
+      }
     }
+
+    // ScrollSpy active link indicator with smooth boundary detection
+    let activeId = '';
+    const scrollOffset = scrollY + 140;
+
+    sections.forEach(section => {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      if (scrollOffset >= top && scrollOffset < top + height) {
+        activeId = section.getAttribute('id');
+      }
+    });
+
+    if (activeId) {
+      navItems.forEach(link => {
+        const isMatch = link.getAttribute('href') === `#${activeId}`;
+        link.classList.toggle('active', isMatch);
+      });
+    }
+
+    isScrolling = false;
   };
-  window.addEventListener('scroll', handleScrollHeader, { passive: true });
-  handleScrollHeader(); // Initial check
+
+  window.addEventListener('scroll', () => {
+    if (!isScrolling) {
+      window.requestAnimationFrame(handleScrollState);
+      isScrolling = true;
+    }
+  }, { passive: true });
+
+  // Initial check on load
+  handleScrollState();
 
   // --- 2. Mobile Menu Toggle ---
   if (hamburger && navLinks) {
-    hamburger.addEventListener('click', () => {
+    const closeMobileMenu = () => {
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('is-active');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    };
+
+    hamburger.addEventListener('click', (e) => {
+      e.stopPropagation();
       const isOpen = navLinks.classList.toggle('open');
       hamburger.classList.toggle('is-active', isOpen);
-      hamburger.setAttribute('aria-expanded', isOpen);
+      hamburger.setAttribute('aria-expanded', String(isOpen));
       document.body.style.overflow = isOpen ? 'hidden' : '';
     });
 
-    // Close menu when clicking outside or clicking any nav link
+    // Close on navigation link click
     navItems.forEach(item => {
-      item.addEventListener('click', () => {
-        if (navLinks.classList.contains('open')) {
-          navLinks.classList.remove('open');
-          hamburger.classList.remove('is-active');
-          hamburger.setAttribute('aria-expanded', 'false');
-          document.body.style.overflow = '';
-        }
-      });
+      item.addEventListener('click', closeMobileMenu);
     });
 
+    // Close when tapping outside the menu
+    document.addEventListener('click', (e) => {
+      if (navLinks.classList.contains('open') && !navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+        closeMobileMenu();
+      }
+    });
+
+    // Close on Escape key
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && navLinks.classList.contains('open')) {
-        navLinks.classList.remove('open');
-        hamburger.classList.remove('is-active');
-        hamburger.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
+        closeMobileMenu();
       }
     });
   }
 
-  // --- 3. ScrollSpy: Highlight Active Link in Navbar ---
-  const updateActiveNavLink = () => {
-    const scrollY = window.pageYOffset;
-
-    sections.forEach(current => {
-      const sectionHeight = current.offsetHeight;
-      const sectionTop = current.offsetTop - 120;
-      const sectionId = current.getAttribute('id');
-
-      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-        navItems.forEach(link => {
-          if (link.getAttribute('href') === `#${sectionId}`) {
-            link.classList.add('active');
-          } else {
-            link.classList.remove('active');
-          }
-        });
-      }
-    });
-  };
-  window.addEventListener('scroll', updateActiveNavLink, { passive: true });
-
-  // --- 4. Smooth Anchor Link Scrolling ---
+  // --- 3. Smooth Anchor Link Scrolling with Accurate Header Offset ---
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       const targetId = this.getAttribute('href');
-      if (targetId === '#') return;
+      if (!targetId || targetId === '#') return;
 
       const targetElement = document.querySelector(targetId);
       if (targetElement) {
         e.preventDefault();
-        targetElement.scrollIntoView({
+        const headerEl = document.querySelector('.site-header');
+        const headerOffset = headerEl ? headerEl.offsetHeight : 80;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - (headerOffset - 2);
+
+        window.scrollTo({
+          top: offsetPosition,
           behavior: 'smooth'
         });
       }
     });
   });
 
-  // --- 5. Scroll Reveal with Intersection Observer ---
+  // --- 4. Scroll Reveal via Intersection Observer ---
   const revealElements = document.querySelectorAll('.reveal');
+
   if ('IntersectionObserver' in window) {
     const revealObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('active');
-          observer.unobserve(entry.target);
+          observer.unobserve(entry.target); // Unobserve immediately: element permanently settles into view
         }
       });
     }, {
-      threshold: 0.12,
+      threshold: 0.06,
       rootMargin: '0px 0px -40px 0px'
     });
 
     revealElements.forEach(el => revealObserver.observe(el));
   } else {
-    // Fallback for older browsers
+    // Graceful fallback for older engines
     revealElements.forEach(el => el.classList.add('active'));
   }
 
-  // --- 6. Contact Form Submission & Toast Notification ---
+  // --- 5. Contact Form Submission & Toast Micro-interaction ---
   if (contactForm && toast) {
+    let toastTimeout = null;
+
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
 
@@ -130,37 +158,38 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // Simulate sending state
-      const originalBtnText = submitBtn.innerHTML;
-      submitBtn.innerHTML = 'Sending Message...';
+      // Visual feedback on submit button
+      const originalContent = submitBtn.innerHTML;
+      submitBtn.innerHTML = 'Sending...';
+      submitBtn.style.opacity = '0.85';
       submitBtn.disabled = true;
 
       setTimeout(() => {
         showToast('Thank you! Your message has been sent successfully.', '✓');
         contactForm.reset();
-        submitBtn.innerHTML = originalBtnText;
+        submitBtn.innerHTML = originalContent;
+        submitBtn.style.opacity = '';
         submitBtn.disabled = false;
-      }, 700);
+      }, 500);
     });
+
+    function showToast(message, iconChar = '✓') {
+      const toastIcon = toast.querySelector('.toast-icon');
+      const toastText = toast.querySelector('.toast-text');
+
+      if (toastIcon) toastIcon.textContent = iconChar;
+      if (toastText) toastText.textContent = message;
+
+      toast.classList.add('show');
+
+      if (toastTimeout) clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3500);
+    }
   }
 
-  // Toast notice helper
-  function showToast(message, iconChar = '✓') {
-    if (!toast) return;
-    const toastIcon = toast.querySelector('.toast-icon');
-    const toastText = toast.querySelector('.toast-text');
-
-    if (toastIcon) toastIcon.textContent = iconChar;
-    if (toastText) toastText.textContent = message;
-
-    toast.classList.add('show');
-
-    setTimeout(() => {
-      toast.classList.remove('show');
-    }, 4000);
-  }
-
-  // --- 7. Back to Top Button ---
+  // --- 6. Back to Top Button ---
   if (backToTopBtn) {
     backToTopBtn.addEventListener('click', () => {
       window.scrollTo({
