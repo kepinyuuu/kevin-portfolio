@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420" fill="none" width="100%" height="100%">
+  <defs>
+    <linearGradient id="waBotBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#12161A"/>
+      <stop offset="100%" stop-color="#0A0D10"/>
+    </linearGradient>
+    <filter id="chatGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="10" stdDeviation="15" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <!-- Main Window -->
+  <rect x="10" y="10" width="660" height="400" rx="20" fill="url(#waBotBg)" stroke="#222A30" stroke-width="2"/>
+
+  <!-- Window Header -->
+  <path d="M10 30 C10 19 19 10 30 10 L650 10 C661 10 670 19 670 30 L670 54 L10 54 Z" fill="#182025"/>
+  <circle cx="34" cy="32" r="5" fill="#EF4444"/>
+  <circle cx="50" cy="32" r="5" fill="#F59E0B"/>
+  <circle cx="66" cy="32" r="5" fill="#10B981"/>
+
+  <text x="96" y="36" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600" fill="#94A3B8">WA-BOT-MODULAR // Node.js v20.12 // Baileys Engine</text>
+
+  <!-- Left Sidebar (Plugin status) -->
+  <rect x="25" y="70" width="190" height="325" rx="14" fill="#14191E" stroke="#232C33" stroke-width="1"/>
+  
+  <text x="40" y="98" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#E2E8F0">ACTIVE PLUGINS</text>
+  <rect x="165" y="87" width="36" height="16" rx="8" fill="#1F3520"/>
+  <text x="174" y="99" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#CCFF00">32</text>
+
+  <!-- Plugin items -->
+  <rect x="36" y="112" width="168" height="34" rx="8" fill="#1C232A"/>
+  <circle cx="50" cy="129" r="4" fill="#CCFF00"/>
+  <text x="62" y="133" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" fill="#FFFFFF">ai_assistant.js</text>
+
+  <rect x="36" y="152" width="168" height="34" rx="8" fill="#1C232A"/>
+  <circle cx="50" cy="169" r="4" fill="#CCFF00"/>
+  <text x="62" y="173" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" fill="#FFFFFF">media_downloader.js</text>
+
+  <rect x="36" y="192" width="168" height="34" rx="8" fill="#1C232A"/>
+  <circle cx="50" cy="209" r="4" fill="#CCFF00"/>
+  <text x="62" y="213" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" fill="#FFFFFF">group_admin_tool.js</text>
+
+  <rect x="36" y="232" width="168" height="34" rx="8" fill="#1C232A"/>
+  <circle cx="50" cy="249" r="4" fill="#CCFF00"/>
+  <text x="62" y="253" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" fill="#FFFFFF">qr_authenticator.js</text>
+
+  <!-- Metric Widget inside sidebar -->
+  <rect x="36" y="280" width="168" height="98" rx="10" fill="#0E1216" stroke="#253039" stroke-width="1"/>
+  <text x="48" y="303" font-family="'JetBrains Mono', monospace" font-size="9.5" fill="#8892B0">MEMORY LOAD</text>
+  <text x="48" y="322" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="14" font-weight="800" fill="#CCFF00">142 MB / 1GB</text>
+  <rect x="48" y="332" width="144" height="4" rx="2" fill="#202A33"/>
+  <rect x="48" y="332" width="40" height="4" rx="2" fill="#CCFF00"/>
+  <text x="48" y="360" font-family="'JetBrains Mono', monospace" font-size="9" fill="#00FFA3">● Latency: 42ms (Fast)</text>
+
+  <!-- Right Chat Terminal View -->
+  <g filter="url(#chatGlow)">
+    <rect x="230" y="70" width="425" height="325" rx="14" fill="#11161B" stroke="#232C33" stroke-width="1"/>
+
+    <!-- Terminal header -->
+    <rect x="230" y="70" width="425" height="42" rx="0" fill="#182026"/>
+    <circle cx="255" cy="91" r="5" fill="#25D366"/>
+    <text x="270" y="95" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">Kevin Bot Gateway (Multi-Session)</text>
+    <rect x="555" y="80" width="85" height="22" rx="11" fill="#253428"/>
+    <text x="568" y="95" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" fill="#25D366">CONNECTED</text>
+
+    <!-- Chat Message: User command -->
+    <rect x="420" y="126" width="220" height="40" rx="12" fill="#1E2832" stroke="#2E3C49" stroke-width="1"/>
+    <text x="435" y="146" font-family="'JetBrains Mono', monospace" font-size="11" fill="#CCFF00">!bot generate-report</text>
+    <text x="435" y="159" font-family="'JetBrains Mono', monospace" font-size="9" fill="#64748B">user: @628123456789 • 20:04</text>
+
+    <!-- Chat Message: Bot reply -->
+    <rect x="245" y="178" width="310" height="100" rx="12" fill="#161D22" stroke="#29372F" stroke-width="1.5"/>
+    <circle cx="265" cy="198" r="8" fill="#CCFF00"/>
+    <text x="262" y="202" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="800" fill="#0E1013">K</text>
+    <text x="282" y="201" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">Kevin WA Bot Core</text>
+    <text x="260" y="225" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="#A5F3FC">⚡ Generating monthly analytics...</text>
+    <text x="260" y="244" font-family="'JetBrains Mono', monospace" font-size="10" fill="#CCFF00">✓ Parsed 1,420 interactions</text>
+    <text x="260" y="261" font-family="'JetBrains Mono', monospace" font-size="10" fill="#8892B0">Export complete: report_2026.pdf (1.2MB)</text>
+
+    <!-- Input Box Simulation -->
+    <rect x="245" y="340" width="400" height="40" rx="10" fill="#182028" stroke="#2C3742" stroke-width="1"/>
+    <text x="262" y="365" font-family="'JetBrains Mono', monospace" font-size="11" fill="#64748B">Type command e.g. !help, !sticker, !ai ...</text>
+    <rect x="580" y="347" width="55" height="26" rx="8" fill="#CCFF00"/>
+    <text x="594" y="364" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="11" font-weight="800" fill="#0E1013">SEND</text>
+  </g>
+</svg>

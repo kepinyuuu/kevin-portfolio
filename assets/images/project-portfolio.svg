@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420" fill="none" width="100%" height="100%">
+  <defs>
+    <linearGradient id="portfolioCardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#191C24"/>
+      <stop offset="100%" stop-color="#0F1116"/>
+    </linearGradient>
+    <linearGradient id="heroLightGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8FAFC"/>
+      <stop offset="100%" stop-color="#EEF2F6"/>
+    </linearGradient>
+    <filter id="floatShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Base Dark Container -->
+  <rect x="10" y="10" width="660" height="400" rx="20" fill="url(#portfolioCardGrad)" stroke="#262C38" stroke-width="2"/>
+
+  <!-- Window Header -->
+  <path d="M10 30 C10 19 19 10 30 10 L650 10 C661 10 670 19 670 30 L670 52 L10 52 Z" fill="#15181F"/>
+  <circle cx="34" cy="31" r="5" fill="#EF4444"/>
+  <circle cx="50" cy="31" r="5" fill="#FFBD2E"/>
+  <circle cx="66" cy="31" r="5" fill="#27C93F"/>
+  <rect x="100" y="21" width="310" height="22" rx="6" fill="#0C0E12"/>
+  <text x="135" y="36" font-family="'Plus Jakarta Sans', monospace, sans-serif" font-size="10.5" fill="#94A3B8">https://kevin-portfolio.dev</text>
+
+  <!-- Dual Split Visual: Light Hero section preview & Dark Projects preview -->
+  <g filter="url(#floatShadow)">
+    <!-- Light preview card (Desktop Hero) -->
+    <rect x="40" y="80" width="380" height="295" rx="14" fill="url(#heroLightGrad)" stroke="#CBD5E1" stroke-width="1"/>
+    
+    <!-- Mini Navbar inside mockup -->
+    <rect x="55" y="95" width="350" height="24" rx="12" fill="#FFFFFF"/>
+    <text x="70" y="111" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="9" font-weight="800" fill="#0E1013">Kevin.</text>
+    <rect x="330" y="99" width="65" height="16" rx="8" fill="#CCFF00"/>
+    <text x="342" y="111" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="8" font-weight="700" fill="#0E1013">Let's Talk</text>
+
+    <!-- Mini Hero Content -->
+    <rect x="65" y="135" width="115" height="16" rx="8" fill="#E2E8F0"/>
+    <text x="73" y="146" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="7.5" font-weight="700" fill="#0E1013">Creative Developer</text>
+    <text x="65" y="172" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="15" font-weight="800" fill="#0E1013">Hi, I'm Kevin.</text>
+    <text x="65" y="190" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="14" font-weight="800" fill="#0E1013">I Build Digital</text>
+    <text x="65" y="208" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="14" font-weight="800" fill="#0E1013">Experiences.</text>
+
+    <!-- Mini Buttons -->
+    <rect x="65" y="225" width="80" height="22" rx="11" fill="#0E1013"/>
+    <text x="78" y="239" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="8" font-weight="700" fill="#CCFF00">View Work</text>
+
+    <rect x="152" y="225" width="75" height="22" rx="11" fill="#FFFFFF" stroke="#0E1013" stroke-width="1"/>
+    <text x="166" y="239" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="8" font-weight="700" fill="#0E1013">Contact</text>
+
+    <!-- Mini Avatar Graphic on Hero preview -->
+    <rect x="250" y="135" width="150" height="150" rx="18" fill="#15181F"/>
+    <circle cx="325" cy="205" r="45" stroke="#CCFF00" stroke-width="1.5" stroke-dasharray="4 4"/>
+    <circle cx="325" cy="195" r="28" fill="#CCFF00" opacity="0.3"/>
+    <ellipse cx="325" cy="195" rx="18" ry="22" fill="#F4BE9B"/>
+    <rect x="295" y="235" width="60" height="40" rx="10" fill="#242831"/>
+  </g>
+
+  <!-- Mobile phone device mockup overlay on the right -->
+  <g filter="url(#floatShadow)">
+    <rect x="450" y="90" width="185" height="285" rx="22" fill="#14181F" stroke="#333C4A" stroke-width="2"/>
+    <!-- Phone speaker/notch -->
+    <rect x="515" y="98" width="55" height="6" rx="3" fill="#222834"/>
+
+    <!-- Mobile Screen Content -->
+    <rect x="460" y="115" width="165" height="245" rx="14" fill="#0E1013"/>
+    
+    <!-- Dark section card in mobile -->
+    <rect x="468" y="125" width="149" height="105" rx="12" fill="#181C24" stroke="#2B3240" stroke-width="1"/>
+    <rect x="478" y="135" width="60" height="14" rx="7" fill="#2B3B18"/>
+    <text x="484" y="145" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="7" font-weight="700" fill="#CCFF00">PROJECT</text>
+    <text x="478" y="166" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF">Omah Vector</text>
+    <text x="478" y="180" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="7.5" fill="#8892B0">UMKM Profile &amp; Ordering</text>
+    <rect x="478" y="196" width="65" height="18" rx="9" fill="#CCFF00"/>
+    <text x="488" y="208" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="7" font-weight="800" fill="#0E1013">View Case</text>
+
+    <!-- Lime CTA Banner in mobile -->
+    <rect x="468" y="240" width="149" height="65" rx="12" fill="#CCFF00"/>
+    <text x="478" y="258" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="9" font-weight="800" fill="#0E1013">Let's Create</text>
+    <text x="478" y="270" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="9" font-weight="800" fill="#0E1013">Something Great</text>
+    <rect x="478" y="278" width="60" height="16" rx="8" fill="#0E1013"/>
+    <text x="489" y="289" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="7" font-weight="700" fill="#FFFFFF">Contact →</text>
+  </g>
+</svg>
