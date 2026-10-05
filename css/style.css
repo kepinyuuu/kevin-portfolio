@@ -846,6 +846,76 @@ button {
   transition: transform var(--duration-micro) var(--ease-entrance);
 }
 
+/* Subtle Continuous Floating Animation for Skills Items */
+@keyframes skillCardFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(var(--float-y, -8px));
+  }
+}
+
+.skills-grid .skill-card {
+  animation-name: skillCardFloat;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+.skills-grid .skill-card:hover {
+  animation-play-state: paused;
+}
+
+/* Individual organic timing, amplitude & staggered phase per card */
+.skills-grid .skill-card:nth-child(1) {
+  --float-y: -8px;
+  animation-duration: 3.4s;
+  animation-delay: -0.4s;
+}
+
+.skills-grid .skill-card:nth-child(2) {
+  --float-y: -7px;
+  animation-duration: 4.0s;
+  animation-delay: -1.8s;
+}
+
+.skills-grid .skill-card:nth-child(3) {
+  --float-y: -9px;
+  animation-duration: 3.6s;
+  animation-delay: -0.9s;
+}
+
+.skills-grid .skill-card:nth-child(4) {
+  --float-y: -7px;
+  animation-duration: 4.2s;
+  animation-delay: -2.4s;
+}
+
+.skills-grid .skill-card:nth-child(5) {
+  --float-y: -8px;
+  animation-duration: 3.8s;
+  animation-delay: -1.3s;
+}
+
+.skills-grid .skill-card:nth-child(6) {
+  --float-y: -6px;
+  animation-duration: 3.5s;
+  animation-delay: -2.8s;
+}
+
+.skills-grid .skill-card:nth-child(7) {
+  --float-y: -8px;
+  animation-duration: 4.1s;
+  animation-delay: -0.6s;
+}
+
+.skills-grid .skill-card:nth-child(8) {
+  --float-y: -7px;
+  animation-duration: 3.7s;
+  animation-delay: -2.1s;
+}
+
 .skill-icon-wrap {
   width: 54px;
   height: 54px;
@@ -1846,6 +1916,11 @@ button {
   .hero-badge, .hero-title, .hero-desc, .hero-cta, .hero-image-wrapper, .hero-image-wrapper img {
     animation: none !important;
     opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .skills-grid .skill-card {
+    animation: none !important;
     transform: none !important;
   }
 }
