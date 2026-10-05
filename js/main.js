@@ -196,6 +196,50 @@ document.addEventListener('DOMContentLoaded', () => {
     revealElements.forEach(el => el.classList.add('active'));
   }
 
+  // --- 4b. Interactive Skills Card Expansion ---
+  const skillCards = document.querySelectorAll('.skills-grid .skill-card');
+
+  if (skillCards.length > 0) {
+    const toggleSkillCard = (cardToToggle) => {
+      const isAlreadyExpanded = cardToToggle.classList.contains('is-expanded');
+
+      // Only one skill expanded at a time: close all cards
+      skillCards.forEach(card => {
+        card.classList.remove('is-expanded');
+        card.setAttribute('aria-expanded', 'false');
+      });
+
+      // If it wasn't already expanded, open the selected one
+      if (!isAlreadyExpanded) {
+        cardToToggle.classList.add('is-expanded');
+        cardToToggle.setAttribute('aria-expanded', 'true');
+      }
+    };
+
+    skillCards.forEach(card => {
+      card.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleSkillCard(card);
+      });
+
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleSkillCard(card);
+        }
+      });
+    });
+
+    // Clicking outside closes any open skill card
+    document.addEventListener('click', (e) => {
+      const activeCard = document.querySelector('.skills-grid .skill-card.is-expanded');
+      if (activeCard && !activeCard.contains(e.target)) {
+        activeCard.classList.remove('is-expanded');
+        activeCard.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
   // --- 5. Contact Form Submission & Toast Micro-interaction (EmailJS) ---
   if (contactForm && toast) {
     let toastTimeout = null;
