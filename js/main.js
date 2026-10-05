@@ -3,7 +3,62 @@
  * Unified Motion & Interaction Engine
  */
 
+// ============================================================================
+// EMAILJS CONFIGURATION
+// Replace the placeholder values below with your personal EmailJS credentials:
+// 1. PUBLIC_KEY  : EmailJS Dashboard -> Account -> General -> Public Key
+// 2. SERVICE_ID  : EmailJS Dashboard -> Email Services (e.g. "service_xxxxxxx")
+// 3. TEMPLATE_ID : EmailJS Dashboard -> Email Templates (e.g. "template_xxxxxxx")
+// ============================================================================
+const EMAILJS_CONFIG = {
+  PUBLIC_KEY: 'XjhNUFBGpJx9_2uoU',
+  SERVICE_ID: 'service_a6illxr',
+  TEMPLATE_ID: 'template_luo9ccg',
+};
+
+// Helper to send email via EmailJS Browser SDK or REST API fallback
+async function sendEmailMessage(templateParams) {
+  if (window.emailjs && typeof window.emailjs.send === 'function') {
+    return await window.emailjs.send(
+      EMAILJS_CONFIG.SERVICE_ID,
+      EMAILJS_CONFIG.TEMPLATE_ID,
+      templateParams,
+      EMAILJS_CONFIG.PUBLIC_KEY
+    );
+  }
+
+  // REST API fallback if the SDK script was blocked or not loaded
+  const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      service_id: EMAILJS_CONFIG.SERVICE_ID,
+      template_id: EMAILJS_CONFIG.TEMPLATE_ID,
+      user_id: EMAILJS_CONFIG.PUBLIC_KEY,
+      template_params: templateParams,
+    }),
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(errorText || `EmailJS request failed with status ${response.status}`);
+  }
+
+  return response;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  // Initialize EmailJS SDK if available and credentials are set
+  if (window.emailjs && EMAILJS_CONFIG.PUBLIC_KEY && EMAILJS_CONFIG.PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
+    try {
+      emailjs.init({ publicKey: EMAILJS_CONFIG.PUBLIC_KEY });
+    } catch (err) {
+      console.warn('[EmailJS] Init notice:', err);
+    }
+  }
+
   // --- Element Selectors ---
   const header = document.querySelector('.site-header');
   const hamburger = document.querySelector('.hamburger');
@@ -141,43 +196,112 @@ document.addEventListener('DOMContentLoaded', () => {
     revealElements.forEach(el => el.classList.add('active'));
   }
 
-  // --- 5. Contact Form Submission & Toast Micro-interaction ---
+  // --- 5. Contact Form Submission & Toast Micro-interaction (EmailJS) ---
   if (contactForm && toast) {
     let toastTimeout = null;
+    let isSubmitting = false;
 
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+
+      // Prevent duplicate submissions
+      if (isSubmitting) return;
 
       const nameInput = document.getElementById('senderName');
       const emailInput = document.getElementById('senderEmail');
       const messageInput = document.getElementById('senderMessage');
       const submitBtn = contactForm.querySelector('button[type="submit"]');
 
-      if (!nameInput.value.trim() || !emailInput.value.trim() || !messageInput.value.trim()) {
-        showToast('Please fill in all fields before sending.', '⚠️');
+      const name = nameInput ? nameInput.value.trim() : '';
+      const email = emailInput ? emailInput.value.trim() : '';
+      const message = messageInput ? messageInput.value.trim() : '';
+
+      // 1. Validate all fields
+      if (!name || !email || !message) {
+        showToast('Please fill in all fields before sending.', '⚠️', 'warning');
         return;
       }
 
-      // Visual feedback on submit button
-      const originalContent = submitBtn.innerHTML;
+      // 2. Validate email format
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        showToast('Please enter a valid email address.', '⚠️', 'warning');
+        if (emailInput) emailInput.focus();
+        return;
+      }
+
+      // 3. Check for placeholder credentials
+      const isConfigured =
+        EMAILJS_CONFIG.PUBLIC_KEY && EMAILJS_CONFIG.PUBLIC_KEY !== 'YOUR_PUBLIC_KEY' &&
+        EMAILJS_CONFIG.SERVICE_ID && EMAILJS_CONFIG.SERVICE_ID !== 'YOUR_SERVICE_ID' &&
+        EMAILJS_CONFIG.TEMPLATE_ID && EMAILJS_CONFIG.TEMPLATE_ID !== 'YOUR_TEMPLATE_ID';
+
+      if (!isConfigured) {
+        showToast('Please configure your EmailJS credentials in js/main.js', '⚠️', 'warning');
+        console.warn('[EmailJS] Configuration missing: Replace YOUR_PUBLIC_KEY, YOUR_SERVICE_ID, and YOUR_TEMPLATE_ID in js/main.js.');
+        return;
+      }
+
+      // 4. Processing UI state: Disable button, show "Sending..."
+      isSubmitting = true;
+      const originalButtonHtml = submitBtn.innerHTML;
       submitBtn.innerHTML = 'Sending...';
       submitBtn.style.opacity = '0.85';
       submitBtn.disabled = true;
 
-      setTimeout(() => {
-        showToast('Thank you! Your message has been sent successfully.', '✓');
+      try {
+        // 5. Send name, email, and message to EmailJS
+        await sendEmailMessage({
+          name: name,
+          email: email,
+          message: message,
+          from_name: name,
+          from_email: email,
+          reply_to: email,
+        });
+
+        // 6. On success: show success message and clear the form
+        showToast('Thank you! Your message has been sent successfully.', '✓', 'success');
         contactForm.reset();
-        submitBtn.innerHTML = originalContent;
+      } catch (error) {
+        // 7. On failure: show error message and keep user's input intact
+        console.error('[EmailJS] Error sending message:', error);
+        showToast('Failed to send message. Please try again.', '✕', 'error');
+      } finally {
+        // 8. Re-enable button after completion
+        submitBtn.innerHTML = originalButtonHtml;
         submitBtn.style.opacity = '';
         submitBtn.disabled = false;
-      }, 500);
+        isSubmitting = false;
+      }
     });
 
-    function showToast(message, iconChar = '✓') {
+    function showToast(message, iconChar = '✓', type = 'success') {
       const toastIcon = toast.querySelector('.toast-icon');
       const toastText = toast.querySelector('.toast-text');
 
-      if (toastIcon) toastIcon.textContent = iconChar;
+      if (toastIcon) {
+        toastIcon.textContent = iconChar;
+        if (type === 'error') {
+          toastIcon.style.background = '#EF4444';
+          toastIcon.style.color = '#FFFFFF';
+        } else if (type === 'warning') {
+          toastIcon.style.background = '#F59E0B';
+          toastIcon.style.color = '#0E1013';
+        } else {
+          toastIcon.style.background = '';
+          toastIcon.style.color = '';
+        }
+      }
+
+      if (type === 'error') {
+        toast.style.borderColor = '#EF4444';
+      } else if (type === 'warning') {
+        toast.style.borderColor = '#F59E0B';
+      } else {
+        toast.style.borderColor = '';
+      }
+
       if (toastText) toastText.textContent = message;
 
       toast.classList.add('show');
@@ -185,6 +309,13 @@ document.addEventListener('DOMContentLoaded', () => {
       if (toastTimeout) clearTimeout(toastTimeout);
       toastTimeout = setTimeout(() => {
         toast.classList.remove('show');
+        setTimeout(() => {
+          if (toastIcon) {
+            toastIcon.style.background = '';
+            toastIcon.style.color = '';
+          }
+          toast.style.borderColor = '';
+        }, 400);
       }, 3500);
     }
   }
