@@ -826,12 +826,111 @@ kepinnyudha_</div>
 
       <div class="footer-bottom">
         <p>© <span id="currentYear">2026</span> Kevin Yudha P. All rights reserved.</p>
-        <button class="back-to-top-btn" id="backToTop" aria-label="Back to top">
-          ↑ Back to Top
-        </button>
+        <div style="display:flex; align-items:center; gap: 16px;">
+          <button class="back-to-top-btn" id="backToTop" aria-label="Back to top">
+            ↑ Back to Top
+          </button>
+          <button class="secret-music-btn" id="secretMusicBtn" aria-label="Open music player" title="Play some music 🎵">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M9 18V5l12-2v13"></path>
+              <circle cx="6" cy="18" r="3"></circle>
+              <circle cx="18" cy="16" r="3"></circle>
+            </svg>
+            ♪
+          </button>
+        </div>
       </div>
     </div>
   </footer>
+
+  <!-- ==========================================================================
+       FLOATING MUSIC PLAYER
+       ========================================================================== -->
+  <div class="music-player" id="musicPlayer" role="dialog" aria-label="Music Player" aria-modal="false">
+
+    <!-- Header -->
+    <div class="mp-header">
+      <div class="mp-title-label">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+        </svg>
+        Now Playing
+      </div>
+      <button class="mp-close-btn" id="mpCloseBtn" aria-label="Close music player">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Cover & Track Info -->
+    <div class="mp-cover-area">
+      <div class="mp-cover-wrap" id="mpCoverWrap">
+        <div class="mp-cover-placeholder" id="mpCoverPlaceholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"></circle>
+            <circle cx="12" cy="12" r="3"></circle>
+            <line x1="12" y1="2" x2="12" y2="9"></line>
+          </svg>
+        </div>
+        <img class="mp-cover" id="mpCoverImg" src="" alt="" style="display:none;">
+      </div>
+      <div class="mp-track-info">
+        <div class="mp-track-title" id="mpTrackTitle">No Track Selected</div>
+        <div class="mp-track-artist" id="mpTrackArtist">Add audio files to assets/audio/</div>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="mp-progress-area">
+      <div class="mp-progress-bar-wrap" id="mpProgressWrap" role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+        <div class="mp-progress-fill" id="mpProgressFill" style="width: 0%"></div>
+      </div>
+      <div class="mp-time-row">
+        <span class="mp-time" id="mpCurrentTime">0:00</span>
+        <span class="mp-time" id="mpDuration">0:00</span>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="mp-controls">
+      <button class="mp-ctrl-btn" id="mpPrevBtn" aria-label="Previous track">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/>
+        </svg>
+      </button>
+      <button class="mp-ctrl-btn mp-play-btn" id="mpPlayBtn" aria-label="Play">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" id="mpPlayIcon">
+          <path d="M8 5v14l11-7z"/>
+        </svg>
+      </button>
+      <button class="mp-ctrl-btn" id="mpNextBtn" aria-label="Next track">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M6 18l8.5-6L6 6v12zm9-12v12h2V6h-2z"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Volume -->
+    <div class="mp-volume-row">
+      <span class="mp-vol-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
+        </svg>
+      </span>
+      <input class="mp-volume-slider" type="range" id="mpVolume" min="0" max="1" step="0.02" value="0.8" aria-label="Volume">
+    </div>
+
+    <!-- Separator -->
+    <div class="mp-separator"></div>
+
+    <!-- Playlist -->
+    <div class="mp-playlist" id="mpPlaylist" role="list" aria-label="Playlist">
+      <!-- Items injected by JS -->
+    </div>
+
+  </div>
 
   <!-- Toast Notification -->
   <div class="toast-notice" id="toastNotice" role="alert" aria-live="polite" aria-atomic="true">
@@ -844,6 +943,9 @@ kepinnyudha_</div>
 
   <!-- Portfolio JS -->
   <script src="js/main.js"></script>
+
+  <!-- Music Player JS -->
+  <script src="js/music-player.js"></script>
 
   <!-- Inline extras: year & counter animation -->
   <script>
@@ -889,3 +991,4 @@ kepinnyudha_</div>
 
 </body>
 </html>
+
