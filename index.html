@@ -1,52 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kevin — Creative Developer &amp; Designer</title>
-  <meta name="description" content="Personal portfolio of Kevin, a software development student and creative designer building clean, modern, and accessible digital experiences.">
-
-  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Kevin Yudha P. — Web Developer &amp; UI/UX Designer</title>
+  <meta name="description" content="Portfolio Kevin Yudha P. — Web Developer &amp; UI/UX Designer. Lulusan SMK Negeri 1 Bangsri (PPLG) dengan fokus pada pembuatan website modern, fungsional, dan antarmuka digital yang intuitif.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Stylesheet -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
   <!-- ==========================================================================
-       1. NAVBAR
+       NAVBAR
        ========================================================================== -->
-  <header class="site-header">
+  <header class="site-header" id="site-header">
     <div class="container navbar">
-      <a href="#home" class="brand-logo" aria-label="Kevin Portfolio Home">
+      <a href="#home" class="brand-logo" aria-label="Kevin Yudha P. Portfolio">
         Kevin<span class="dot">.</span>
       </a>
 
       <nav aria-label="Main Navigation">
-        <ul class="nav-links">
-          <li><a href="#home" class="nav-link active">Home</a></li>
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#skills" class="nav-link">Skills</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
-          <li><a href="#experience" class="nav-link">Experience</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home" class="nav-link active" id="nav-home">Home</a></li>
+          <li><a href="#about" class="nav-link" id="nav-about">About</a></li>
+          <li><a href="#skills" class="nav-link" id="nav-skills">Skills</a></li>
+          <li><a href="#projects" class="nav-link" id="nav-projects">Projects</a></li>
+          <li><a href="#experience" class="nav-link" id="nav-experience">Experience</a></li>
+          <li><a href="#contact" class="nav-link" id="nav-contact">Contact</a></li>
         </ul>
       </nav>
 
       <div class="nav-actions">
-        <a href="#contact" class="btn btn-primary btn-talk">
-          Let's Talk
-          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </a>
-
-        <!-- Hamburger Toggle for Mobile -->
-        <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <a href="#contact" class="btn btn-talk" id="btn-lets-talk">Let's Talk →</a>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false">
           <span></span>
           <span></span>
           <span></span>
@@ -55,144 +43,212 @@
     </div>
   </header>
 
-
   <!-- ==========================================================================
-       2. HERO SECTION (Light)
+       HERO SECTION (Light)
        ========================================================================== -->
-  <section id="home" class="section-light hero-section">
+  <section id="home" class="hero-section section-light">
     <div class="container hero-grid">
       <div class="hero-content">
-        <div class="hero-badge">
-          <span class="pulse-dot"></span>
-          Creative Developer &amp; Designer
+        <div class="hero-badge" id="hero-badge">
+          <span class="pulse-dot" aria-hidden="true"></span>
+          Available for new projects
         </div>
-        
-        <h1 class="hero-title">
-          Hi, I'm Kevin.<br>
-          I Build <span class="highlight">Digital</span> Experiences.
+
+        <h1 class="hero-title" id="hero-title">
+          Hi, I'm Kevin Yudha<br>
+          <span class="highlight">Web Developer</span> &amp; UI/UX Designer.
         </h1>
 
-        <p class="hero-desc">
-          I am a software developer and designer specialized in creating fast, intuitive web applications and modern digital products with attention to detail and user experience.
+        <p class="hero-desc" id="hero-desc">
+          Lulusan SMK Negeri 1 Bangsri jurusan PPLG. Berfokus pada web development dan UI/UX design untuk menciptakan website modern yang cepat, fungsional, dan mudah digunakan.
         </p>
 
-        <div class="hero-cta">
-          <a href="#projects" class="btn btn-dark">
-            View My Work
-            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </a>
-          <a href="#contact" class="btn btn-outline">
-            Contact Me
-          </a>
+        <div class="hero-cta" id="hero-cta">
+          <a href="#projects" class="btn btn-dark" id="btn-view-work">View My Work →</a>
+          <a href="#contact" class="btn btn-outline" id="btn-contact-hero">Contact Me</a>
         </div>
       </div>
 
-      <div class="hero-visual">
+      <div class="hero-visual" id="hero-visual">
         <div class="hero-image-wrapper">
-          <img src="assets/images/hero-profile.svg" alt="Kevin - Creative Developer &amp; Designer Profile" width="540" height="580">
+          <!-- Background Orbit & Decorative Elements -->
+          <svg class="hero-decor-svg" viewBox="0 0 540 580" fill="none" aria-hidden="true">
+            <defs>
+              <radialGradient id="heroDecorGlow" cx="50%" cy="45%" r="45%">
+                <stop offset="0%" stop-color="#CCFF00" stop-opacity="0.25"/>
+                <stop offset="100%" stop-color="#CCFF00" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <!-- Orbit & Circles -->
+            <circle cx="270" cy="270" r="230" stroke="#CCFF00" stroke-width="1.5" stroke-dasharray="8 8" opacity="0.3"/>
+            <circle cx="270" cy="270" r="185" stroke="#FFFFFF" stroke-width="1" opacity="0.1"/>
+            <circle cx="270" cy="250" r="160" fill="url(#heroDecorGlow)"/>
+            <!-- Geometric Dots Cluster -->
+            <g opacity="0.4" fill="#CCFF00">
+              <circle cx="450" cy="90" r="3"/>
+              <circle cx="470" cy="90" r="3"/>
+              <circle cx="490" cy="90" r="3"/>
+              <circle cx="450" cy="110" r="3"/>
+              <circle cx="470" cy="110" r="3"/>
+              <circle cx="490" cy="110" r="3"/>
+              <circle cx="450" cy="130" r="3"/>
+              <circle cx="470" cy="130" r="3"/>
+              <circle cx="490" cy="130" r="3"/>
+            </g>
+            <!-- Plus Crosshairs -->
+            <g stroke="#CCFF00" stroke-width="2" opacity="0.6">
+              <line x1="70" y1="95" x2="70" y2="115"/>
+              <line x1="60" y1="105" x2="80" y2="105"/>
+            </g>
+            <g stroke="#8C94A0" stroke-width="1.5" opacity="0.4">
+              <line x1="475" y1="465" x2="475" y2="485"/>
+              <line x1="465" y1="475" x2="485" y2="475"/>
+            </g>
+            <!-- Sparkles -->
+            <path d="M485 210 Q485 220 495 220 Q485 220 485 230 Q485 220 475 220 Z" fill="#CCFF00"/>
+            <path d="M72 323 Q72 330 79 330 Q72 330 72 337 Q72 330 65 330 Z" fill="#CCFF00" opacity="0.8"/>
+          </svg>
+
+          <!-- Central Card Frame (Kotak Rounded Besar) -->
+          <div class="hero-frame">
+            <img
+              src="assets/images/IMG_3810.jpg"
+              alt="Kevin Yudha P. — Web Developer &amp; UI/UX Designer"
+              class="hero-photo"
+              width="380"
+              height="440"
+              loading="eager"
+              fetchpriority="high"
+              onerror="this.onerror=null; this.src='assets/images/profile.jpeg';"
+            >
+            <div class="hero-frame-overlay" aria-hidden="true"></div>
+          </div>
+
+          <!-- FLOATING BADGE 1: Top Left (Status Pill) -->
+          <div class="hero-floating-badge badge-top-left" id="heroBadgeStatus">
+            <span class="badge-pulse-dot" aria-hidden="true"></span>
+            <span class="badge-text">Available for Work</span>
+          </div>
+
+          <!-- FLOATING BADGE 2: Bottom Right (Creative UI/UX) -->
+          <div class="hero-floating-badge badge-bottom-right" id="heroBadgeCreative">
+            <div class="badge-icon-circle" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </div>
+            <div class="badge-text-group">
+              <span class="badge-title">Web Developer</span>
+              <span class="badge-sub">UI/UX Designer</span>
+            </div>
+          </div>
+
+          <!-- FLOATING BADGE 3: Bottom Left (Code Stack) -->
+          <div class="hero-floating-badge badge-bottom-left" id="heroBadgeStack">
+            <div class="badge-icon-square" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#CCFF00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            </div>
+            <div class="badge-text-group">
+              <span class="badge-title">Full-Stack</span>
+              <span class="badge-sub">PHP • JS • Laravel</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-
   <!-- ==========================================================================
-       3. ABOUT SECTION (Dark)
+       ABOUT SECTION (Dark)
        ========================================================================== -->
-  <section id="about" class="section-dark about-section">
-    <div class="container about-grid">
-      <div class="about-visual reveal">
-        <div class="about-image-card">
-          <img src="assets/images/about-graphic.svg" alt="Developer Code &amp; Design System Preview" width="520" height="440">
-        </div>
-      </div>
-
-      <div class="about-content reveal">
-        <div class="section-tag">
-          <span class="pulse-dot"></span>
-          Biography
-        </div>
-        
-        <h2 class="section-title">About Me</h2>
-
-        <p class="about-text">
-          I am a software development student with an interest in <strong>web development</strong>, <strong>UI design</strong>, and <strong>digital products</strong>.
-        </p>
-        <p class="about-text">
-          Currently expanding my expertise in modern web technologies and full-stack engineering at <strong>SMK Negeri 1 Bangsri</strong> (PPLG), I love bridging the gap between functional code logic and delightful design aesthetics.
-        </p>
-
-        <ul class="about-points">
-          <li>
-            <span class="bullet">✓</span>
-            Focused on building accessible, high-performance web applications.
-          </li>
-          <li>
-            <span class="bullet">✓</span>
-            Passionate about UI/UX design systems, modern layouts, and micro-interactions.
-          </li>
-          <li>
-            <span class="bullet">✓</span>
-            Experienced in delivering real-world projects for UMKM and automated tools.
-          </li>
-        </ul>
-
-        <!-- Statistics Counter Area -->
-        <div class="stats-grid">
-          <div class="stat-card">
-            <div class="stat-number">15+</div>
-            <div class="stat-label">Projects Completed</div>
+  <section id="about" class="about-section section-dark reveal">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual reveal">
+          <div class="about-image-card">
+            <img
+              src="assets/images/about-graphic.svg"
+              alt="About Kevin — Creative Developer"
+              width="480"
+              height="480"
+            >
           </div>
-          <div class="stat-card">
-            <div class="stat-number">8+</div>
-            <div class="stat-label">Technologies</div>
+        </div>
+
+        <div class="about-content reveal">
+          <div class="section-header" style="text-align:left; margin:0 0 24px;">
+            <span class="section-tag">About Me</span>
+            <h2 class="section-title">Passionate about building modern digital experiences</h2>
           </div>
-          <div class="stat-card">
-            <div class="stat-number">3+</div>
-            <div class="stat-label">Years Learning</div>
+
+          <p class="about-text">
+            Lulusan <strong>SMK Negeri 1 Bangsri</strong> jurusan Pengembangan Perangkat Lunak dan Gim (PPLG). Memiliki minat mendalam pada web development, UI/UX design, dan pembuatan website modern yang fungsional dan estetis.
+          </p>
+          <p class="about-text">
+            Terbiasa bekerja secara individu maupun dalam tim, disiplin, bertanggung jawab, dan terus bersemangat belajar mengembangkan kemampuan untuk menghadirkan solusi web berkualitas.
+          </p>
+
+          <ul class="about-points">
+            <li>
+              <span class="bullet" aria-hidden="true">✓</span>
+              Fokus pada pembuatan website modern, rapi, dan responsif
+            </li>
+            <li>
+              <span class="bullet" aria-hidden="true">✓</span>
+              Disiplin, bertanggung jawab, dan adaptif bekerja individu maupun tim
+            </li>
+            <li>
+              <span class="bullet" aria-hidden="true">✓</span>
+              Bahasa: Bahasa Indonesia (Native) • English (Basic)
+            </li>
+          </ul>
+
+          <div class="stats-grid">
+            <div class="stat-card reveal">
+              <div class="stat-number" id="stat-projects" data-target="10">0</div>
+              <div class="stat-label">Projects Built</div>
+            </div>
+            <div class="stat-card reveal">
+              <div class="stat-number" id="stat-years" data-target="3">0</div>
+              <div class="stat-label">Years Learning</div>
+            </div>
+            <div class="stat-card reveal">
+              <div class="stat-number" id="stat-clients" data-target="10">0</div>
+              <div class="stat-label">Happy Clients</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-
   <!-- ==========================================================================
-       4. SKILLS SECTION (Light)
+       SKILLS SECTION (Light)
        ========================================================================== -->
-  <section id="skills" class="section-light">
+  <section id="skills" class="section-light" style="padding: var(--section-padding);">
     <div class="container">
       <div class="section-header reveal">
-        <div class="section-tag">Capabilities</div>
-        <h2 class="section-title">My Skills</h2>
-        <p class="section-subtitle">
-          The technical toolset and design methodologies I leverage to build reliable, beautiful web solutions.
-        </p>
+        <span class="section-tag">My Skills</span>
+        <h2 class="section-title">Tools &amp; Technologies I Work With</h2>
+        <p class="section-subtitle">Keahlian dan teknologi yang saya gunakan dalam merancang dan mengembangkan website modern, terstruktur, dan responsif.</p>
       </div>
 
       <div class="skills-grid">
         <!-- 1. HTML -->
-        <div class="skill-card reveal" tabindex="0" role="button" aria-expanded="false">
+        <div class="skill-card reveal" id="skill-html" tabindex="0" role="button" aria-expanded="false">
           <div class="skill-icon-wrap" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="16 18 22 12 16 6"></polyline>
               <polyline points="8 6 2 12 8 18"></polyline>
             </svg>
           </div>
-          <h3 class="skill-title">HTML</h3>
           <div class="skill-info">
-            <div class="skill-info-inner">
-              <p class="skill-desc">Semantic markup, web accessibility (a11y), clean DOM structure, and SEO standards.</p>
-              <span class="skill-tag">Structure</span>
-            </div>
+            <div class="skill-title">HTML</div>
+            <p class="skill-desc">Struktur markup semantik, web accessibility (a11y), clean DOM structure, dan standar SEO.</p>
+            <span class="skill-tag">Structure</span>
           </div>
         </div>
 
         <!-- 2. CSS -->
-        <div class="skill-card reveal" tabindex="0" role="button" aria-expanded="false">
+        <div class="skill-card reveal" id="skill-css" tabindex="0" role="button" aria-expanded="false">
           <div class="skill-icon-wrap" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
@@ -200,33 +256,29 @@
               <path d="M2 12l10 5 10-5"></path>
             </svg>
           </div>
-          <h3 class="skill-title">CSS</h3>
           <div class="skill-info">
-            <div class="skill-info-inner">
-              <p class="skill-desc">Modern Flexbox, CSS Grid, keyframes, transitions, custom design tokens, and fluid responsiveness.</p>
-              <span class="skill-tag">Styling</span>
-            </div>
+            <div class="skill-title">CSS</div>
+            <p class="skill-desc">Modern Flexbox, CSS Grid, keyframes animation, custom properties, dan fluid responsiveness.</p>
+            <span class="skill-tag">Styling</span>
           </div>
         </div>
 
         <!-- 3. JavaScript -->
-        <div class="skill-card reveal" tabindex="0" role="button" aria-expanded="false">
+        <div class="skill-card reveal" id="skill-js" tabindex="0" role="button" aria-expanded="false">
           <div class="skill-icon-wrap" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
             </svg>
           </div>
-          <h3 class="skill-title">JavaScript</h3>
           <div class="skill-info">
-            <div class="skill-info-inner">
-              <p class="skill-desc">Modern ES6+ syntax, asynchronous programming, DOM interactions, APIs, and client-side logic.</p>
-              <span class="skill-tag">Interactivity</span>
-            </div>
+            <div class="skill-title">JavaScript</div>
+            <p class="skill-desc">Sintaks ES6+ modern, manipulasi DOM, pemrosesan asinkron (async/await), dan logika interaktif.</p>
+            <span class="skill-tag">Interactivity</span>
           </div>
         </div>
 
         <!-- 4. PHP -->
-        <div class="skill-card reveal" tabindex="0" role="button" aria-expanded="false">
+        <div class="skill-card reveal" id="skill-php" tabindex="0" role="button" aria-expanded="false">
           <div class="skill-icon-wrap" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
@@ -235,33 +287,29 @@
               <line x1="6" y1="18" x2="6.01" y2="18"></line>
             </svg>
           </div>
-          <h3 class="skill-title">PHP</h3>
           <div class="skill-info">
-            <div class="skill-info-inner">
-              <p class="skill-desc">Server-side architecture, dynamic page rendering, session management, and backend scripting.</p>
-              <span class="skill-tag">Backend</span>
-            </div>
+            <div class="skill-title">PHP</div>
+            <p class="skill-desc">Arsitektur server-side, render halaman dinamis, session management, dan backend scripting.</p>
+            <span class="skill-tag">Backend</span>
           </div>
         </div>
 
         <!-- 5. Laravel -->
-        <div class="skill-card reveal" tabindex="0" role="button" aria-expanded="false">
+        <div class="skill-card reveal" id="skill-laravel" tabindex="0" role="button" aria-expanded="false">
           <div class="skill-icon-wrap" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M16.5 9.4 7.55 4.24a1.78 1.78 0 0 0-2.5 1.55v12.42a1.78 1.78 0 0 0 2.5 1.55L16.5 14.6a1.78 1.78 0 0 0 0-3.2z"></path>
             </svg>
           </div>
-          <h3 class="skill-title">Laravel</h3>
           <div class="skill-info">
-            <div class="skill-info-inner">
-              <p class="skill-desc">MVC architecture, Eloquent ORM, Blade templating, routing, migrations, and secure authentication.</p>
-              <span class="skill-tag">Framework</span>
-            </div>
+            <div class="skill-title">Laravel</div>
+            <p class="skill-desc">Pola MVC, Eloquent ORM, Blade templating, routing, middleware, dan web application terstruktur.</p>
+            <span class="skill-tag">Framework</span>
           </div>
         </div>
 
         <!-- 6. MySQL -->
-        <div class="skill-card reveal" tabindex="0" role="button" aria-expanded="false">
+        <div class="skill-card reveal" id="skill-mysql" tabindex="0" role="button" aria-expanded="false">
           <div class="skill-icon-wrap" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
@@ -269,17 +317,15 @@
               <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
             </svg>
           </div>
-          <h3 class="skill-title">MySQL</h3>
           <div class="skill-info">
-            <div class="skill-info-inner">
-              <p class="skill-desc">Relational database design, query optimization, normalization, indexing, and data integrity.</p>
-              <span class="skill-tag">Database</span>
-            </div>
+            <div class="skill-title">MySQL</div>
+            <p class="skill-desc">Perancangan database relasional, optimasi query SQL, normalisasi data, dan integritas relasi tabel.</p>
+            <span class="skill-tag">Database</span>
           </div>
         </div>
 
         <!-- 7. Figma -->
-        <div class="skill-card reveal" tabindex="0" role="button" aria-expanded="false">
+        <div class="skill-card reveal" id="skill-figma" tabindex="0" role="button" aria-expanded="false">
           <div class="skill-icon-wrap" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"></path>
@@ -289,301 +335,383 @@
               <path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"></path>
             </svg>
           </div>
-          <h3 class="skill-title">Figma</h3>
           <div class="skill-info">
-            <div class="skill-info-inner">
-              <p class="skill-desc">Wireframing, high-fidelity UI mockups, responsive components, and interactive prototypes.</p>
-              <span class="skill-tag">Design Tool</span>
-            </div>
+            <div class="skill-title">Figma</div>
+            <p class="skill-desc">Wireframing, high-fidelity UI mockups, responsive components, interactive prototype, dan design system.</p>
+            <span class="skill-tag">Design Tool</span>
           </div>
         </div>
 
         <!-- 8. UI/UX Design -->
-        <div class="skill-card reveal" tabindex="0" role="button" aria-expanded="false">
+        <div class="skill-card reveal" id="skill-design" tabindex="0" role="button" aria-expanded="false">
           <div class="skill-icon-wrap" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="10"></circle>
-              <path d="m4.93 4.93 4.24 4.24"></path>
-              <path d="m14.83 9.17 4.24-4.24"></path>
-              <path d="m14.83 14.83 4.24 4.24"></path>
-              <path d="m9.17 14.83-4.24 4.24"></path>
               <circle cx="12" cy="12" r="4"></circle>
+              <line x1="21.17" y1="8" x2="12" y2="8"></line>
+              <line x1="3.95" y1="6.06" x2="8.54" y2="14"></line>
+              <line x1="10.88" y1="21.94" x2="15.46" y2="14"></line>
             </svg>
           </div>
-          <h3 class="skill-title">UI/UX Design</h3>
           <div class="skill-info">
-            <div class="skill-info-inner">
-              <p class="skill-desc">User research, design heuristics, information hierarchy, usability testing, and aesthetic polish.</p>
-              <span class="skill-tag">Experience</span>
-            </div>
+            <div class="skill-title">UI/UX Design</div>
+            <p class="skill-desc">Riset pengguna, prinsip hierarki visual, arsitektur informasi, usability testing, dan estetika antarmuka.</p>
+            <span class="skill-tag">Experience</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-
   <!-- ==========================================================================
-       5. PROJECTS SECTION (Dark)
+       PROJECTS SECTION (Dark)
        ========================================================================== -->
-  <section id="projects" class="section-dark projects-section">
+  <section id="projects" class="projects-section section-dark reveal">
     <div class="container">
       <div class="section-header reveal">
-        <div class="section-tag">Portfolio</div>
-        <h2 class="section-title">Selected Projects</h2>
-        <p class="section-subtitle">
-          A showcase of recent web applications, e-commerce solutions, and digital tools I have designed and built.
-        </p>
+        <span class="section-tag">Selected Projects</span>
+        <h2 class="section-title">Work I'm Proud Of</h2>
+        <p class="section-subtitle">Beberapa proyek pilihan yang menampilkan kemampuan saya dalam web development dan UI/UX design.</p>
       </div>
 
       <div class="projects-stack">
-        <!-- FEATURED PROJECT: Omah Vector (Larger layout) -->
-        <div class="project-card-featured reveal">
+
+        <!-- Featured Project: OmahVector -->
+        <article class="project-card-featured reveal" id="project-omahvector" tabindex="0" role="button" aria-expanded="false">
           <div class="featured-visual">
-            <img src="assets/images/project-omahvector.svg" alt="Omah Vector - UMKM Profile &amp; Ordering Website Mockup" width="680" height="420">
+            <img
+              src="assets/images/project-omahvector.svg"
+              alt="Omah Vector — Website Katalog &amp; Pemesanan UMKM"
+              width="640"
+              height="400"
+              loading="lazy"
+            >
           </div>
-
           <div class="featured-content">
-            <span class="project-badge">★ Featured Project</span>
-            <h3 class="project-title">Omah Vector — UMKM Profile &amp; Ordering Website</h3>
-            <p class="project-desc">
-              A comprehensive digital web presence and automated order calculation system created for a creative vector art UMKM. Features interactive custom vector packages, direct file upload previews, automated pricing formulas, and seamless WhatsApp ordering integration.
-            </p>
-
-            <div class="project-tags">
-              <span class="tech-tag">Laravel</span>
-              <span class="tech-tag">Tailwind CSS</span>
-              <span class="tech-tag">MySQL</span>
-              <span class="tech-tag">JavaScript</span>
-              <span class="tech-tag">WhatsApp API</span>
+            <div class="project-header-row">
+              <span class="project-badge">★ Featured</span>
+              <span class="project-category-badge">UMKM &amp; Printing</span>
+              <span class="project-toggle-indicator" aria-hidden="true">
+                Details
+                <svg class="toggle-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </span>
             </div>
-
-            <a href="#contact" class="btn btn-primary">
-              View Project
-              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
+            <h3 class="project-title">Omah Vector</h3>
+            <div class="project-details">
+              <div class="project-details-inner">
+                <p class="project-desc">
+                  Website katalog informasi dan pemesanan UMKM digital printing. Memudahkan pelanggan melihat katalog produk digital vector, layanan cetak, dan melakukan pemesanan secara efisien.
+                </p>
+                <div class="project-tags">
+                  <span class="tech-tag">PHP</span>
+                  <span class="tech-tag">MySQL</span>
+                  <span class="tech-tag">HTML</span>
+                  <span class="tech-tag">CSS</span>
+                  <span class="tech-tag">JavaScript</span>
+                </div>
+                <a href="#" class="btn btn-outline-dark" id="btn-omahvector-view" aria-label="View Omah Vector project">View Project →</a>
+              </div>
+            </div>
           </div>
-        </div>
+        </article>
 
-        <!-- 3-COLUMN PROJECTS GRID -->
+        <!-- Standard Projects Grid -->
         <div class="projects-grid">
-          <!-- Project 2: Woodora -->
-          <div class="project-card reveal">
-            <div class="project-thumbnail">
-              <img src="assets/images/project-woodora.svg" alt="Woodora - Modern Furniture Website Mockup" width="680" height="420">
-            </div>
-            <div class="project-info">
-              <h3 class="project-title">Woodora — Modern Furniture Website</h3>
-              <p class="project-desc">
-                An elegant e-commerce catalog featuring minimalist Scandinavian aesthetics, clean product filtering, dynamic cart drawer, and responsive showcase grids.
-              </p>
-              <div class="project-tags">
-                <span class="tech-tag">HTML5 / CSS3</span>
-                <span class="tech-tag">JavaScript</span>
-                <span class="tech-tag">Figma UI/UX</span>
-              </div>
-              <a href="#contact" class="btn btn-outline-dark">
-                View Project
-                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-              </a>
-            </div>
-          </div>
 
-          <!-- Project 3: WhatsApp Bot -->
-          <div class="project-card reveal">
+          <!-- Project: Woodora -->
+          <article class="project-card reveal" id="project-woodora" tabindex="0" role="button" aria-expanded="false">
             <div class="project-thumbnail">
-              <img src="assets/images/project-wabots.svg" alt="WhatsApp Bot - Modular WhatsApp Bot Mockup" width="680" height="420">
+              <img
+                src="assets/images/project-woodora.svg"
+                alt="Woodora — Website Toko Furniture Laravel"
+                width="480"
+                height="300"
+                loading="lazy"
+              >
             </div>
             <div class="project-info">
-              <h3 class="project-title">WhatsApp Bot — Modular WhatsApp Bot</h3>
-              <p class="project-desc">
-                A multi-device automated messaging bot built on top of Baileys. Features a plug-and-play architecture for AI prompts, media downloading, and community moderation.
-              </p>
-              <div class="project-tags">
-                <span class="tech-tag">Node.js</span>
-                <span class="tech-tag">Baileys API</span>
-                <span class="tech-tag">Modular Engine</span>
+              <div class="project-header-row">
+                <span class="project-category-badge">Furniture Store</span>
+                <span class="project-toggle-indicator" aria-hidden="true">
+                  Details
+                  <svg class="toggle-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
               </div>
-              <a href="#contact" class="btn btn-outline-dark">
-                View Project
-                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-              </a>
+              <h3 class="project-title">Woodora</h3>
+              <div class="project-details">
+                <div class="project-details-inner">
+                  <p class="project-desc">
+                    Website toko furniture berbasis Laravel. Dilengkapi katalog produk furnitur, detail spesifikasi produk, dan antarmuka belanja yang rapi dan terstruktur.
+                  </p>
+                  <div class="project-tags">
+                    <span class="tech-tag">Laravel</span>
+                    <span class="tech-tag">PHP</span>
+                    <span class="tech-tag">MySQL</span>
+                    <span class="tech-tag">Blade</span>
+                    <span class="tech-tag">CSS</span>
+                  </div>
+                  <a href="#" class="btn btn-outline-dark" id="btn-woodora-view" aria-label="View Woodora project">View Project →</a>
+                </div>
+              </div>
             </div>
-          </div>
+          </article>
 
-          <!-- Project 4: Personal Portfolio -->
-          <div class="project-card reveal">
+          <!-- Project: WA Bots -->
+          <article class="project-card reveal" id="project-wabots" tabindex="0" role="button" aria-expanded="false">
             <div class="project-thumbnail">
-              <img src="assets/images/project-portfolio.svg" alt="Personal Portfolio Showcase Mockup" width="680" height="420">
+              <img
+                src="assets/images/project-wabots.svg"
+                alt="WhatsApp Bot — Node.js &amp; Baileys"
+                width="480"
+                height="300"
+                loading="lazy"
+              >
             </div>
             <div class="project-info">
-              <h3 class="project-title">Personal Portfolio — Developer Showcase</h3>
-              <p class="project-desc">
-                An original, high-performance personal portfolio built with clean semantic HTML, modular CSS, neon lime accents, and dark/light contrasting section transitions.
-              </p>
-              <div class="project-tags">
-                <span class="tech-tag">HTML5 / CSS3</span>
-                <span class="tech-tag">Vanilla JS</span>
-                <span class="tech-tag">Responsive</span>
+              <div class="project-header-row">
+                <span class="project-category-badge">Automation &amp; Bot</span>
+                <span class="project-toggle-indicator" aria-hidden="true">
+                  Details
+                  <svg class="toggle-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
               </div>
-              <a href="#contact" class="btn btn-outline-dark">
-                View Project
-                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-              </a>
+              <h3 class="project-title">WhatsApp Bot</h3>
+              <div class="project-details">
+                <div class="project-details-inner">
+                  <p class="project-desc">
+                    Bot WhatsApp berbasis Node.js dan Baileys dengan sistem command modular. Mendukung respons otomatis, utilitas grup, dan penanganan media.
+                  </p>
+                  <div class="project-tags">
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">Baileys</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Modular Command</span>
+                  </div>
+                  <a href="#" class="btn btn-outline-dark" id="btn-wabots-view" aria-label="View WhatsApp Bot project">View Project →</a>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
+          </article>
+
+          <!-- Project: Portfolio -->
+          <article class="project-card reveal" id="project-portfolio" tabindex="0" role="button" aria-expanded="false">
+            <div class="project-thumbnail">
+              <img
+                src="assets/images/project-portfolio.svg"
+                alt="Personal Portfolio — Website Pribadi"
+                width="480"
+                height="300"
+                loading="lazy"
+              >
+            </div>
+            <div class="project-info">
+              <div class="project-header-row">
+                <span class="project-category-badge">Personal Website</span>
+                <span class="project-toggle-indicator" aria-hidden="true">
+                  Details
+                  <svg class="toggle-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
+              </div>
+              <h3 class="project-title">Personal Portfolio</h3>
+              <div class="project-details">
+                <div class="project-details-inner">
+                  <p class="project-desc">
+                    Website portfolio pribadi dengan HTML, CSS, dan JavaScript. Menampilkan profil, keahlian, dan portofolio proyek dengan animasi interaktif dan responsif.
+                  </p>
+                  <div class="project-tags">
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">CSS</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Responsive Web</span>
+                  </div>
+                  <a href="#" class="btn btn-outline-dark" id="btn-portfolio-view" aria-label="View Personal Portfolio project">View Source →</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- /projects-grid -->
+      </div><!-- /projects-stack -->
     </div>
   </section>
 
-
   <!-- ==========================================================================
-       6. EXPERIENCE / EDUCATION (Light)
+       EXPERIENCE / EDUCATION SECTION (Light)
        ========================================================================== -->
-  <section id="experience" class="section-light">
+  <section id="experience" class="section-light" style="padding: var(--section-padding);">
     <div class="container">
       <div class="section-header reveal">
-        <div class="section-tag">Journey</div>
-        <h2 class="section-title">Education &amp; Experience</h2>
-        <p class="section-subtitle">
-          My academic foundation and practical milestones in software development and interface design.
-        </p>
+        <span class="section-tag">Experience &amp; Education</span>
+        <h2 class="section-title">My Journey &amp; Experience</h2>
+        <p class="section-subtitle">Riwayat pengalaman praktik, proyek pengembangan web, dan latar belakang pendidikan di bidang rekayasa perangkat lunak.</p>
       </div>
 
       <div class="timeline-wrap">
-        <!-- Item 1: School -->
-        <div class="timeline-item reveal">
-          <div class="timeline-marker"></div>
+
+        <!-- 1. PKL / Web Developer Intern -->
+        <div class="timeline-item reveal" id="exp-pkl">
+          <div class="timeline-marker" aria-hidden="true"></div>
           <div class="timeline-card">
             <div class="timeline-meta">
-              <h3 class="timeline-role">Software Development (PPLG)</h3>
-              <span class="timeline-period">2023 — Present</span>
+              <div>
+                <div class="timeline-role">PKL / Web Developer Intern</div>
+                <div class="timeline-org">Web Development</div>
+              </div>
+              <span class="timeline-period">Internship</span>
             </div>
-            <div class="timeline-org">SMK Negeri 1 Bangsri</div>
             <p class="timeline-desc">
-              Currently pursuing a formal vocational education in Pengembangan Perangkat Lunak dan Gim (PPLG). Focused on data structures, object-oriented programming, relational databases, web frameworks, and collaborative software lifecycles.
+              Mengembangkan website, mengelola database, dan membantu implementasi fitur antarmuka serta fungsionalitas sistem.
             </p>
           </div>
         </div>
 
-        <!-- Item 2: Projects & Independent Work -->
-        <div class="timeline-item reveal">
-          <div class="timeline-marker"></div>
+        <!-- 2. UI/UX Designer -->
+        <div class="timeline-item reveal" id="exp-uiux">
+          <div class="timeline-marker" aria-hidden="true"></div>
           <div class="timeline-card">
             <div class="timeline-meta">
-              <h3 class="timeline-role">Independent Web &amp; Automation Developer</h3>
-              <span class="timeline-period">2024 — Present</span>
+              <div>
+                <div class="timeline-role">UI/UX Designer</div>
+                <div class="timeline-org">Design &amp; Prototyping</div>
+              </div>
+              <span class="timeline-period">Project Based</span>
             </div>
-            <div class="timeline-org">Freelance &amp; Personal Projects</div>
             <p class="timeline-desc">
-              Developed custom digital solutions including the Omah Vector UMKM ordering platform, automated WhatsApp services, and responsive UI kits. Constantly shipping clean code and refining user experience standards.
+              Membuat wireframe, mockup, prototype, dan desain antarmuka pengguna yang bersih dan terstruktur menggunakan Figma.
             </p>
           </div>
         </div>
 
-        <!-- Item 3: Design & Tech Explorations -->
-        <div class="timeline-item reveal">
-          <div class="timeline-marker"></div>
+        <!-- 3. Project Akhir -->
+        <div class="timeline-item reveal" id="exp-project-akhir">
+          <div class="timeline-marker" aria-hidden="true"></div>
           <div class="timeline-card">
             <div class="timeline-meta">
-              <h3 class="timeline-role">UI/UX &amp; Modern Front-End Studies</h3>
-              <span class="timeline-period">2023 — Present</span>
+              <div>
+                <div class="timeline-role">Pengembang Project Akhir</div>
+                <div class="timeline-org">Website Solusi UMKM</div>
+              </div>
+              <span class="timeline-period">Project Akhir</span>
             </div>
-            <div class="timeline-org">Self-Directed Learning</div>
             <p class="timeline-desc">
-              Deep-diving into modern design systems with Figma, user research principles, responsive web performance, and aesthetic typography combinations to create human-centered digital experiences.
+              Mengembangkan website UMKM menggunakan teknologi web, mencakup pengelolaan database, perancangan antarmuka, dan sistem informasi produk.
             </p>
           </div>
         </div>
+
+        <!-- 4. SMK Negeri 1 Bangsri -->
+        <div class="timeline-item reveal" id="edu-smk">
+          <div class="timeline-marker" aria-hidden="true"></div>
+          <div class="timeline-card">
+            <div class="timeline-meta">
+              <div>
+                <div class="timeline-role">SMK Negeri 1 Bangsri</div>
+                <div class="timeline-org">Pengembangan Perangkat Lunak dan Gim (PPLG)</div>
+              </div>
+              <span class="timeline-period">2024 – 2027</span>
+            </div>
+            <p class="timeline-desc">
+              Pendidikan kejuruan dengan fokus pada pemrograman web, rekayasa perangkat lunak, basis data, dan kolaborasi pengembangan aplikasi.
+            </p>
+          </div>
+        </div>
+
+        <!-- 5. MTs Hasyim Asy'ari -->
+        <div class="timeline-item reveal" id="edu-mts">
+          <div class="timeline-marker" aria-hidden="true"></div>
+          <div class="timeline-card">
+            <div class="timeline-meta">
+              <div>
+                <div class="timeline-role">MTs Hasyim Asy'ari</div>
+                <div class="timeline-org">Pendidikan Menengah Pertama</div>
+              </div>
+              <span class="timeline-period">2021 – 2024</span>
+            </div>
+            <p class="timeline-desc">
+              Menyelesaikan pendidikan dasar lanjutan dengan pembinaan karakter disiplin, tanggung jawab, dan minat awal di bidang teknologi.
+            </p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-
   <!-- ==========================================================================
-       7. CTA SECTION (Bright Lime-Green)
+       CTA SECTION (Accent Lime)
        ========================================================================== -->
-  <div class="cta-wrapper">
-    <div class="container">
-      <div class="cta-banner reveal">
-        <div class="cta-content">
-          <h2 class="cta-title">Let's Create Something Great</h2>
-          <p class="cta-desc">
-            Have a project or idea? Let's turn it into a digital experience.
-          </p>
-        </div>
-        <div class="cta-action">
-          <a href="#contact" class="btn btn-cta">
-            Contact Me
-            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </a>
-        </div>
+  <div class="cta-wrapper reveal">
+    <div class="cta-banner">
+      <div class="cta-content">
+        <h2 class="cta-title" id="cta-title">Ready to build something great together?</h2>
+        <p class="cta-desc">I'm open to freelance projects, internships, and full-time opportunities. Let's create something you'll be proud of.</p>
+      </div>
+      <div class="cta-action">
+        <a href="#contact" class="btn btn-cta" id="btn-cta-contact">Let's Talk →</a>
       </div>
     </div>
   </div>
 
-
   <!-- ==========================================================================
-       8. CONTACT SECTION (Light)
+       CONTACT SECTION (Light)
        ========================================================================== -->
-  <section id="contact" class="section-light">
+  <section id="contact" class="section-light" style="padding: var(--section-padding);">
     <div class="container">
       <div class="section-header reveal">
-        <div class="section-tag">Get In Touch</div>
-        <h2 class="section-title">Contact</h2>
-        <p class="section-subtitle">
-          Feel free to reach out for collaborations, project inquiries, or just to say hello!
-        </p>
+        <span class="section-tag">Get In Touch</span>
+        <h2 class="section-title">Let's Work Together</h2>
+        <p class="section-subtitle">Have a project in mind or just want to say hello? Drop me a message — I typically respond within 24 hours.</p>
       </div>
 
       <div class="contact-grid">
-        <!-- Contact Links / Cards -->
+        <!-- Contact Info -->
         <div class="contact-info-wrap reveal">
-          <!-- Email -->
-          <a href="mailto:kevinyudhapratama22@gmail.com" class="contact-card-link">
+          <a href="mailto:kepinyud67@gmail.com" class="contact-card-link" id="contact-email" aria-label="Send email to Kevin">
             <div class="contact-icon-box" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
               </svg>
             </div>
             <div>
               <div class="contact-label">Email</div>
-              <div class="contact-value">kevinyudhapratama22@gmail.com</div>
+              <div class="contact-value">kepinyud67@gmail.com</div>
             </div>
           </a>
 
-          <!-- WhatsApp -->
-          <a href="https://wa.me/6283831520933" target="_blank" rel="noopener noreferrer" class="contact-card-link">
+          <a href="https://wa.me/6283831520933" class="contact-card-link" id="contact-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Chat with Kevin on WhatsApp">
             <div class="contact-icon-box" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
               </svg>
             </div>
             <div>
               <div class="contact-label">WhatsApp</div>
-              <div class="contact-value">+62 838-3152-0933</div>
+              <div class="contact-value">+62 838 3152 0933</div>
             </div>
           </a>
 
-          <!-- Instagram -->
-          <a href="https://www.instagram.com/kepinnyudha_?stkn=MWdlMmIwenJxcmZmcQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="contact-card-link">
+          <a href="https://github.com/kepinyuuu" class="contact-card-link" id="contact-github" target="_blank" rel="noopener noreferrer" aria-label="View Kevin's GitHub profile">
+            <div class="contact-icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+              </svg>
+            </div>
+            <div>
+              <div class="contact-label">GitHub</div>
+              <div class="contact-value">github.com/kepinyuuu</div>
+            </div>
+          </a>
+
+          <a href="https://www.instagram.com/kepinnyudha_?stkn=MWdlMmIwenJxcmZmcQ%3D%3D&utm_source=qr" class="contact-card-link" id="contact-instagram" target="_blank" rel="noopener noreferrer" aria-label="View Kevin's Instagram profile">
             <div class="contact-icon-box" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
@@ -593,20 +721,8 @@
             </div>
             <div>
               <div class="contact-label">Instagram</div>
-              <div class="contact-value">kepinnyudha_</div>
-            </div>
-          </a>
-
-          <!-- GitHub -->
-          <a href="https://github.com/kevinyudha" target="_blank" rel="noopener noreferrer" class="contact-card-link">
-            <div class="contact-icon-box" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-              </svg>
-            </div>
-            <div>
-              <div class="contact-label">GitHub</div>
-              <div class="contact-value">github.com/kevinyudha</div>
+              <div class="contact-value">
+kepinnyudha_</div>
             </div>
           </a>
         </div>
@@ -615,26 +731,41 @@
         <div class="contact-form-card reveal">
           <form id="contactForm" novalidate>
             <div class="form-group">
-              <label for="senderName" class="form-label">Your Name</label>
-              <input type="text" id="senderName" name="name" class="form-input" placeholder="e.g. Alex Pratama" required>
+              <label class="form-label" for="senderName">Your Name</label>
+              <input
+                class="form-input"
+                type="text"
+                id="senderName"
+                name="name"
+                placeholder="John Doe"
+                required
+                autocomplete="name"
+              >
             </div>
-
             <div class="form-group">
-              <label for="senderEmail" class="form-label">Your Email</label>
-              <input type="email" id="senderEmail" name="email" class="form-input" placeholder="e.g. alex@example.com" required>
+              <label class="form-label" for="senderEmail">Email Address</label>
+              <input
+                class="form-input"
+                type="email"
+                id="senderEmail"
+                name="email"
+                placeholder="john@example.com"
+                required
+                autocomplete="email"
+              >
             </div>
-
             <div class="form-group">
-              <label for="senderMessage" class="form-label">Message</label>
-              <textarea id="senderMessage" name="message" class="form-textarea" placeholder="Tell me about your project, idea, or inquiry..." required></textarea>
+              <label class="form-label" for="senderMessage">Message</label>
+              <textarea
+                class="form-textarea"
+                id="senderMessage"
+                name="message"
+                placeholder="Tell me about your project or just say hello..."
+                required
+              ></textarea>
             </div>
-
-            <button type="submit" class="btn btn-dark form-submit-btn">
-              Send Message
-              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="22" y1="2" x2="11" y2="13"></line>
-                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-              </svg>
+            <button type="submit" class="btn btn-primary form-submit-btn" id="btn-send-message">
+              Send Message →
             </button>
           </form>
         </div>
@@ -642,58 +773,51 @@
     </div>
   </section>
 
-
   <!-- ==========================================================================
-       9. FOOTER (Dark)
+       FOOTER (Dark)
        ========================================================================== -->
-  <footer class="site-footer">
+  <footer class="site-footer" id="site-footer">
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          <a href="#home" class="brand-logo" aria-label="Kevin Portfolio">
+          <a href="#home" class="brand-logo" aria-label="Back to top — Kevin Portfolio">
             Kevin<span class="dot">.</span>
           </a>
           <p class="footer-tagline">
-            Creative Developer &amp; UI/UX Designer crafting purposeful digital experiences and web products.
+            Web Developer &amp; UI/UX Designer lulusan SMK Negeri 1 Bangsri. Berfokus pada pembuatan website modern, fungsional, dan estetis.
           </p>
         </div>
 
-        <div>
-          <h4 class="footer-title">Navigation</h4>
+        <div class="footer-col">
+          <div class="footer-title">Navigation</div>
           <ul class="footer-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#home" id="footer-nav-home">Home</a></li>
+            <li><a href="#about" id="footer-nav-about">About</a></li>
+            <li><a href="#skills" id="footer-nav-skills">Skills</a></li>
+            <li><a href="#projects" id="footer-nav-projects">Projects</a></li>
+            <li><a href="#contact" id="footer-nav-contact">Contact</a></li>
           </ul>
         </div>
 
-        <div>
-          <h4 class="footer-title">Connect</h4>
+        <div class="footer-col">
+          <div class="footer-title">Connect</div>
           <div class="footer-socials">
-            <a href="https://github.com/kevinyudha" target="_blank" rel="noopener noreferrer" class="social-circle-btn" aria-label="GitHub">
+            <a href="https://github.com/kepinyuuu" class="social-circle-btn" target="_blank" rel="noopener noreferrer" id="footer-github" aria-label="GitHub Profile">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
               </svg>
             </a>
-            <a href="https://www.instagram.com/kepinnyudha_?stkn=MWdlMmIwenJxcmZmcQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="social-circle-btn" aria-label="Instagram">
+            <a href="https://instagram.com/kepinyuuu" class="social-circle-btn" target="_blank" rel="noopener noreferrer" id="footer-instagram" aria-label="Instagram Profile">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
               </svg>
             </a>
-            <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="social-circle-btn" aria-label="WhatsApp">
+            <a href="mailto:kepinyud67@gmail.com" class="social-circle-btn" id="footer-email" aria-label="Send Email">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-              </svg>
-            </a>
-            <a href="mailto:kevinyudha.dev@gmail.com" class="social-circle-btn" aria-label="Email">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
               </svg>
             </a>
           </div>
@@ -701,29 +825,67 @@
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2026 Kevin. All rights reserved. Designed &amp; built with passion.</p>
-        <button id="backToTop" class="back-to-top-btn" aria-label="Back to top">
-          Back to top
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="12" y1="19" x2="12" y2="5"></line>
-            <polyline points="5 12 12 5 19 12"></polyline>
-          </svg>
+        <p>© <span id="currentYear">2026</span> Kevin Yudha P. All rights reserved.</p>
+        <button class="back-to-top-btn" id="backToTop" aria-label="Back to top">
+          ↑ Back to Top
         </button>
       </div>
     </div>
   </footer>
 
-
-  <!-- Interactive Toast Notification -->
-  <div id="toastNotice" class="toast-notice" role="alert" aria-live="polite">
-    <div class="toast-icon">✓</div>
-    <div class="toast-text">Message sent successfully!</div>
+  <!-- Toast Notification -->
+  <div class="toast-notice" id="toastNotice" role="alert" aria-live="polite" aria-atomic="true">
+    <div class="toast-icon" aria-hidden="true">✓</div>
+    <span class="toast-text">Message sent successfully!</span>
   </div>
 
   <!-- EmailJS SDK -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-  <!-- JavaScript -->
+  <!-- Portfolio JS -->
   <script src="js/main.js"></script>
+
+  <!-- Inline extras: year & counter animation -->
+  <script>
+    // Update copyright year
+    const yearEl = document.getElementById('currentYear');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    // Animated counter for stats
+    function animateCounter(el, target, duration) {
+      const start = performance.now();
+      const update = (now) => {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.floor(eased * target) + '+';
+        if (progress < 1) requestAnimationFrame(update);
+      };
+      requestAnimationFrame(update);
+    }
+
+    const statEls = [
+      { id: 'stat-projects', target: 20 },
+      { id: 'stat-years', target: 3 },
+      { id: 'stat-clients', target: 10 },
+    ];
+
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.dataset.target, 10);
+          animateCounter(el, target, 1600);
+          statsObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.4 });
+
+    statEls.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      if (el) statsObserver.observe(el);
+    });
+  </script>
+
 </body>
 </html>
